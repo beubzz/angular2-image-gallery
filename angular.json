@@ -122,7 +122,7 @@
         }
       }
     },
-    "angular2-image-gallery": {
+    "angular2-image-gallery-fixed": {
       "root": "projects/angular2-image-gallery",
       "sourceRoot": "projects/angular2-image-gallery/src",
       "projectType": "library",

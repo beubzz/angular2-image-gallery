@@ -218,7 +218,9 @@ export class GalleryComponent implements OnInit, OnDestroy, OnChanges {
         this.minimalQualityCategory = maximumGalleryImageHeight > 375 ? 'preview_xs' : 'preview_xxs'
         this.refreshNavigationErrorState()
 
-        this.changeDetectorRef.detectChanges()
+        if (!this.changeDetectorRef['destroyed']) {
+            this.changeDetectorRef.detectChanges();
+        }
     }
 
     private checkForAsyncLoading(image: any, imageCounter: number): void {
@@ -236,10 +238,10 @@ export class GalleryComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     private isScrolledIntoView(element: any): boolean {
-        const elementTop = element.getBoundingClientRect().top
-        const elementBottom = element.getBoundingClientRect().bottom
-
-        return elementTop < window.innerHeight && elementBottom >= 0 && (elementBottom > 0 || elementTop > 0)
+        // const elementTop = element.getBoundingClientRect().top
+        // const elementBottom = element.getBoundingClientRect().bottom
+        // return elementTop < window.innerHeight && elementBottom >= 0 && (elementBottom > 0 || elementTop > 0)
+        return true;
     }
 
     private refreshNavigationErrorState(): void {
